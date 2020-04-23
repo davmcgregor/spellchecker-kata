@@ -1,19 +1,31 @@
 class Spelling
   def check(input)
-    dictionary = ["Cat", "Dog", "Good"]
-    downcase_dictionary = dictionary.map!(&:downcase)
+    if !input.is_a? String
+      return "Error input not a string"
+    end
+    
+    dictionary = []
+    File.open("dictionary.txt") do |file|
+      file.each do |line|
+        dictionary << line.strip.downcase
+      end
+    end
 
-    sentence = input.split(" ")
+    punctuation = [".", ",", "!", "-", "?", "'"]
+    dictionary.push(*punctuation) 
+
+    sentence = input.scan(/(?:\w|['-]\w)+|[[:punct:]]+/)
     
     sentence.map!{ |word| 
-    if downcase_dictionary.include?(word.downcase)
+    if dictionary.include?(word.downcase)
       word = word
     else
       word = "~" + word + "~"
     end
   }
 
-  return sentence.join(" ")
+
+  return sentence.join(" ").gsub(/\s+\./, '.').gsub(/\s+!/, '!').gsub(/\s+-/, '-')
     
   end
 end
