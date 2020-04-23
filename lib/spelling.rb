@@ -1,5 +1,5 @@
 class Spelling
   def check(input)
-    "Cat"
+    input
   end
 end
