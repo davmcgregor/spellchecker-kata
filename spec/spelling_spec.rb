@@ -17,5 +17,9 @@ describe Spelling do
     it 'should take an input of "Good cat" and return "Good cat"' do
       expect(subject.check("Good cat")).to eq ("Good cat")
     end
+
+    it 'should take an input of "Good Dooooog" and return "Good ~Dooooog~"' do
+      expect(subject.check("Good Dooooog")).to eq ("Good ~Dooooog~")
+    end
   end
 end

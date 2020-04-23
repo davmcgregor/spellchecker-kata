@@ -15,7 +15,7 @@
 | "Dog" | "Dog" |
 | "Dooooog" | "~Dooooog~" |
 | "Good cat" | "Good cat" |
-| "Good Dooooog" | "Good ~Dooooog~ |
+| "Good Dooooog" | "Good ~Dooooog~" |
 | "These words are spnelt correclty" | "These words are ~spnelt~ ~correclty~" |                     |
 | 1 | "error" |
 | true | "error" |
